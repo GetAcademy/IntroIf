@@ -3,6 +3,7 @@ Introdusere
     logiske verdier 
     sammenligninger
     logiske operatorer
+    else og else if
 
 1. Enkel introduksjon i konsoll: 
     - confirm, logisk verdi, if, else
