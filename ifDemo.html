@@ -14,7 +14,7 @@
         Ser ut som alder: <br />
         <input id="looksAge" onchange="checkIfCanBuyBeer()" type="range" min="1" step="1" max="100" /><br />
         <input id="hasId" onchange="checkIfCanBuyBeer()" type="checkbox" />
-        Har legitimasjon: <br />
+        Har legitimasjon<br />
     </div>
 
     <div id="info"></div>
@@ -27,11 +27,26 @@
             let age = document.getElementById('age').valueAsNumber;
             let looksAge = document.getElementById('looksAge').valueAsNumber;
             let hasId = document.getElementById('hasId').checked;
+            let feedback;
+            if (looksAge >= 25) {
+                feedback = 'Ja';
+            } else {
+                if (hasId) {
+                    if (age >= 18) {
+                        feedback = 'Ja';
+                    } else {
+                        feedback = 'Nei';
+                    }
+                } else {
+                    feedback = 'Nei';
+                }
+            }
 
             document.getElementById('info').innerHTML = /*HTML*/`
                 Alder: ${age}<br/>
                 Ser ut som alder: ${looksAge}<br/>
                 Har legitimasjon: ${hasId}<br/>
+                Får kjøpe øl: ${feedback}<br/>
             `;
         }
 
